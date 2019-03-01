@@ -1,0 +1,34 @@
+### 生命周期
+![生命周期](./images/01生命周期.png)
+
+### create 创建容器
+docker create [OPTIONS] image [COMMAND] [ARG...] 创建
+1. 输入命令
+docker create centos ls -s 命令
+2. 创建容器名称
+docker create --name centos-test centos  
+docker ps -a
+
+3. -t 参数 分配一个伪TTY,一个终端,-i 及时没有连接也保持STDIN打开状态
+docker create -ti centos python
+
+4. 命令参数
+  COMMAND 表示容器启动后,需要在容器中执行的命令,如ps.ls
+  ARG 表示执行COMMOND时需要提供的一些参数,如ps命令的aux,ls -a
+
+### rm 删除容器
+docker rm [OPTIONs] CONTAINER [CONTAINER...]
+docker rm id
+
+### start 开启容器
+docker start  CONTAINER
+ -a: 获取输出结果
+ -i: 保持连接
+ -t: 终端
+docker start -it centos-python
+
+### run 创建并开启从前
+docker run  [OPTIONs] CONTAINER [CONTAINER...] 
+docker run -it centos python
+  -d: 后台运行
+  -it: 终端保持连接
