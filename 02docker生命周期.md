@@ -17,7 +17,7 @@ docker create -ti centos python
   ARG 表示执行COMMOND时需要提供的一些参数,如ps命令的aux,ls -a
 
 ### rm 删除容器
-docker rm [OPTIONs] CONTAINER [CONTAINER...]
+docker rm [OPTIONS] CONTAINER [CONTAINER...]
 docker rm id
 
 ### start 开启容器
@@ -27,8 +27,19 @@ docker start  CONTAINER
  -t: 终端
 docker start -it centos-python
 
-### run 创建并开启从前
-docker run  [OPTIONs] CONTAINER [CONTAINER...] 
+### run 创建并开启容器
+docker run  [OPTIONS] CONTAINER [CONTAINER...] 
 docker run -it centos python
   -d: 后台运行
   -it: 终端保持连接
+docker run = docker create + docker start -a 前台模式
+docker run -d = docker create + docker start 后台模式
+
+### stop 停止容器
+docker stop  [OPTIONS] CONTAINER [CONTAINER...] 
+关闭要等10s
+docker stop -t 2 centos 两秒停止
+  -t: 停止的等待时间
+
+### kill 杀死容器
+docker kill  [OPTIONS] CONTAINER [CONTAINER...] 
