@@ -43,3 +43,31 @@ docker stop -t 2 centos 两秒停止
 
 ### kill 杀死容器
 docker kill  [OPTIONS] CONTAINER [CONTAINER...] 
+
+### pause/unpause 暂停容器
+docker pause  [OPTIONS] CONTAINER [CONTAINER...] 
+
+### restart 重启容器 
+docker restart  [OPTIONS] CONTAINER [CONTAINER...] 
+
+### logs 容器查看日志信息
+docker logs  [OPTIONS] CONTAINER [CONTAINER...]   
+查看的是命令的输出内容
+
+### rename 容器重命名
+docker rename  [OPTIONS] CONTAINER [CONTAINER...]   
+docker rename 43ab python
+
+### attach 容器运行时操作
+docker attach  [OPTIONS] CONTAINER [CONTAINER...]  
+可以进入容器中的程序终端,绑定到pid为1 的主进程,退出时会结束容器主进程  
+将当前终端STDIN,STDOUT,STDEER绑定到正在运行的容器的主进程上实现连接  
+--no-stdin
+
+### exec 容器运行时操作
+docker exec  [OPTIONS] CONTAINER [CONTAINER...]  
+在一个运行容器中运行一个命令,退出时不会结束容器主进程
+  -d: 后台运行
+  -it: 终端保持连接
+  -w: 指定目录
+  -e: 设置环境变量
