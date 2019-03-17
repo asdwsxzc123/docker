@@ -1,0 +1,11 @@
+# flask web app v1.0
+# 搭建一个基于flask的web项目:实现了简单的访问统计
+# 第一步: 获取一个镜像:python3.6
+FROM python:alpine3.6
+# 第二步: 拷贝项目代码到镜像中,或者通过git或者ADD COPY(只做拷贝操作)
+COPY ./code /code
+# 第三步: 安装项目的依赖环境: flask,reids
+WORKDIR /code
+RUN pip install -r requirements.txt
+# 第四步: 配置项目启动: CMD参数 python app.py
+CMD ["python", "app.py"]
