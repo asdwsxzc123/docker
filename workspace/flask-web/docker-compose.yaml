@@ -4,7 +4,19 @@ services:
     build: .
     ports: 
       - "5000:5000"
+    container_name: flask-web
+    networks: 
+      - web
   redis: 
     image: redis
-
-
+    container_name: redis
+    networks: 
+      - web
+    volumes:
+      - redis-data:/data
+networks:
+  web: 
+    driver: bridge
+volumes:
+  redis-data:
+    driver: 'local'

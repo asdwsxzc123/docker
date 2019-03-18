@@ -4,7 +4,7 @@ import redis
 from flask import Flask
 app = Flask(__name__)
 # 此处host是docker-compose.yaml配置文件中redis服务的名称
-cache = redis.Redis(host='127.0.0.1', port=6379, password='geesunn')
+cache = redis.Redis(host='127.0.0.1', port=6379)
 def get_hit_commit():
   """ 利用redis统计访问次数 """
   retries = 5
